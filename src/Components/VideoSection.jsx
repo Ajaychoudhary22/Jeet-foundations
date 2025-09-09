@@ -3,21 +3,29 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Importing all images from components/office_photo/
-import madeInIndia from "./office_photo/made_in_india.jpeg";
-import cleanIndia from "./office_photo/clean_india.jpeg";
-import treePlantation1 from "./office_photo/tree_plantation1.jpeg";
-import officePhoto from "./office_photo/office_photo.jpeg";
-
-
 export default function ImageCarousel() {
+  // Use absolute paths to images in the public folder
   const slides = [
-    { type: "image", src: madeInIndia, alt: "Made in India Initiative" },
-    { type: "image", src: cleanIndia, alt: "Clean India Initiative" },
-    { type: "image", src: treePlantation1, alt: "Tree Plantation Drive" },
-    { type: "image", src: officePhoto, alt: "JEE Welfare Foundation Office" },
-    
-    
+    { 
+      type: "image", 
+      src: "/office_photo/Made_in_india.jpeg", 
+      alt: "Made in India Initiative" 
+    },
+    { 
+      type: "image", 
+      src: "/office_photo/Clean_India.jpeg", 
+      alt: "Clean India Initiative" 
+    },
+    { 
+      type: "image", 
+      src: "/office_photo/Tree_Plantation1.jpeg", 
+      alt: "Tree Plantation Drive" 
+    },
+    { 
+      type: "image", 
+      src: "/office_photo/Office_Photo.jpeg", 
+      alt: "JEE Welfare Foundation Office" 
+    },
   ];
 
   const settings = {

@@ -1,5 +1,4 @@
 import React from "react";
-import qrImage from "../Components/office_photo/QR.jpg";
 
 export default function Donate() {
   return (
@@ -20,8 +19,9 @@ export default function Donate() {
           <code className="bg-green-100 px-2 py-1 rounded">jeetfoundations@upi</code>
         </p>
 
+        {/* Use absolute path instead of import */}
         <img
-          src={qrImage}
+          src="/office_photo/QR.jpg"
           alt="Donate QR Code for PhonePe"
           className="h-[220px] w-auto border-2 border-green-300 rounded-lg my-4 object-contain mx-auto"
         />
