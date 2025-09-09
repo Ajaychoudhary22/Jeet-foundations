@@ -3,20 +3,21 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Importing all images from components/office photo/
-import madeInIndia from "./office photo/Made in india.jpeg";
-import cowShed from "./office photo/Cow shed.jpeg";
-import cleanIndia from "./office photo/Clean India.jpeg";
-import treePlantation1 from "./office photo/Tree Plantation1.jpeg";
-import officePhoto from "./office photo/Office Photo.jpeg";
+// Importing all images from components/office_photo/
+import madeInIndia from "./office_photo/made_in_india.jpeg";
+import cleanIndia from "./office_photo/clean_india.jpeg";
+import treePlantation1 from "./office_photo/tree_plantation1.jpeg";
+import officePhoto from "./office_photo/office_photo.jpeg";
 
-export default function VideoSection() {
+
+export default function ImageCarousel() {
   const slides = [
-    { type: "image", src: madeInIndia },
-    { type: "image", src: cowShed },
-    { type: "image", src: cleanIndia },
-    { type: "image", src: treePlantation1 },
-    { type: "image", src: officePhoto },
+    { type: "image", src: madeInIndia, alt: "Made in India Initiative" },
+    { type: "image", src: cleanIndia, alt: "Clean India Initiative" },
+    { type: "image", src: treePlantation1, alt: "Tree Plantation Drive" },
+    { type: "image", src: officePhoto, alt: "JEE Welfare Foundation Office" },
+    
+    
   ];
 
   const settings = {
@@ -34,28 +35,21 @@ export default function VideoSection() {
   };
 
   return (
-    <div className="w-full flex justify-center items-center">
-      <div className="w-full max-w-4xl">
+    <div className="w-full flex justify-center items-center py-8 bg-gray-100">
+      <div className="w-full max-w-4xl px-4">
+        <h2 className="text-3xl font-bold text-center mb-6 text-blue-800">
+          JEE Welfare Foundation Activities
+        </h2>
         <Slider {...settings}>
           {slides.map((slide, index) => (
-            <div key={index} className="flex justify-center items-center">
-              {slide.type === "video" ? (
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  className="max-h-[400px] w-auto mx-auto rounded-lg object-contain"
-                >
-                  <source src={slide.src} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
+            <div key={index} className="flex justify-center items-center px-2">
+              <div className="bg-white p-2 rounded-lg shadow-lg">
                 <img
                   src={slide.src}
-                  alt={`slide-${index}`}
-                  className="max-h-[400px] w-auto mx-auto rounded-lg object-contain"
+                  alt={slide.alt}
+                  className="max-h-[400px] w-full object-contain mx-auto rounded-md"
                 />
-              )}
+              </div>
             </div>
           ))}
         </Slider>
