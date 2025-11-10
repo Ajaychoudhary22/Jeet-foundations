@@ -14,42 +14,36 @@ export default function ImageCarousel() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 800,
+    speed: 1200,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 3500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     fade: true,
-    cssEase: "linear",
+    cssEase: "ease-in-out",
     pauseOnHover: false,
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden bg-black">
       <Slider {...settings} className="h-full">
         {slides.map((slide, index) => (
-          <div key={index} className="relative h-screen">
+          <div key={index} className="relative h-screen w-full">
+            {/* 🖼️ Full Image (no crop) */}
             <img
               src={slide.src}
               alt={slide.alt}
-              className="w-full h-screen object-cover"
+              className="w-full h-full object-contain bg-black"
             />
 
-            {/* Optional overlay for text or dim effect */}
-            <div className="absolute inset-0 bg-black/40 flex justify-center items-center">
-              <h2 className="text-white text-3xl md:text-5xl font-bold text-center drop-shadow-lg">
-                {slide.alt}
-              </h2>
+            {/* 📝 Alt text at left-bottom on image */}
+            <div className="absolute bottom-6 left-6 text-white text-xl md:text-2xl font-semibold drop-shadow-lg">
+              {slide.alt}
             </div>
           </div>
         ))}
       </Slider>
-
-      {/* Optional Section Title (can remove if not needed) */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-white font-semibold">
-        
-      </div>
     </div>
   );
 }
