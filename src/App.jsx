@@ -7,9 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
 
 // ✅ Components
-import Header from "./Components/Header";
 import Navbar from "./Components/Navbar";
-import VideoSection from "./Components/VideoSection";
+import ImageCarousel from "./Components/VideoSection"; // renamed component
 import About from "./Components/About";
 import Mission from "./Components/Mission";
 import Event from "./Components/Event";
@@ -29,55 +28,53 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-green-50 text-gray-800 overflow-x-hidden scroll-smooth">
-      {/* Navbar fixed top */}
+      {/* 🌿 Navbar */}
       <Navbar onVolunteerClick={() => setShowForm(true)} />
 
-      {/* Header (below navbar) */}
-      <div className="pt-20">
-        <Header />
-      </div>
+      {/* 🖼️ Hero Image Carousel */}
+      <section id="home" className="m-0 p-0" data-aos="fade-up">
+        <ImageCarousel />
+      </section>
 
-      {/* ✅ Main Content */}
-      <main className="space-y-24">
-        <section id="home" data-aos="fade-up">
-          <VideoSection />
-        </section>
+      {/* 🌱 About Section */}
+      <section id="about" className="m-0 p-0" data-aos="fade-up">
+        <About />
+      </section>
 
-        <section id="about" data-aos="fade-up" className="bg-white py-20">
-          <About />
-        </section>
+      {/* 🎯 Mission Section */}
+      <section id="mission" className="m-0 p-0" data-aos="fade-up">
+        <Mission />
+      </section>
 
-        <section id="mission" data-aos="fade-up">
-          <Mission />
-        </section>
+      {/* 🎉 Event Section */}
+      <section id="event" className="m-0 p-0" data-aos="fade-right">
+        <Event />
+      </section>
 
-        {/* ❌ Removed Initiatives and Gallery (now part of Program) */}
+      {/* 📚 Program Section */}
+      <section id="program" className="m-0 p-0" data-aos="fade-up">
+        <Program />
+      </section>
 
-        <section id="event" data-aos="fade-right">
-          <Event />
-        </section>
+      {/* 🗺️ Map Section */}
+      <section id="map" className="m-0 p-0" data-aos="fade-up">
+        <Map />
+      </section>
 
-        <section id="program" data-aos="fade-up">
-          <Program />
-        </section>
+      {/* 💚 Donate Section */}
+      <section id="donate" className="m-0 p-0" data-aos="zoom-in">
+        <Donate />
+      </section>
 
-        <section id="map" data-aos="fade-up" className="bg-white py-20">
-          <Map />
-        </section>
+      {/* 📞 Contact Section */}
+      <section id="contact" className="m-0 p-0" data-aos="fade-up">
+        <Contact />
+      </section>
 
-        <section id="donate" data-aos="zoom-in" className="bg-white py-20">
-          <Donate />
-        </section>
-
-        <section id="contact" data-aos="fade-up">
-          <Contact />
-        </section>
-      </main>
-
-      {/* Footer */}
+      {/* 🌍 Footer */}
       <Footer />
 
-      {/* Volunteer Form */}
+      {/* 🤝 Volunteer Form Modal */}
       <VolunteerForm showForm={showForm} setShowForm={setShowForm} />
     </div>
   );

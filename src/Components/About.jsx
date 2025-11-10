@@ -1,13 +1,14 @@
+// 🌿 About.jsx
 import { motion } from "framer-motion";
 
 export default function About() {
   return (
     <section
-      className="p-8 bg-green-50 rounded m-4 shadow flex flex-col md:flex-row items-center gap-8"
+      className="p-8 bg-green-50 flex flex-col md:flex-row items-center gap-8 m-0"
       id="about"
       data-aos="fade-right"
     >
-      {/* 🧾 Left Side - Text Content */}
+      {/* Left Text */}
       <motion.div
         className="md:w-1/2 text-left"
         initial={{ opacity: 0, x: -50 }}
@@ -25,7 +26,7 @@ export default function About() {
         </p>
       </motion.div>
 
-      {/* 🌿 Right Side - Image */}
+      {/* Right Image */}
       <motion.div
         className="md:w-1/2 flex justify-center"
         initial={{ opacity: 0, x: 50 }}
