@@ -9,11 +9,11 @@ export default function Navbar({ onVolunteerClick }) {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Mission", href: "#mission" },
-    { name: "Initiatives", href: "#initiatives" },
+    
     { name: "Event", href: "#event" },
-    { name: "Gallery", href: "#gallery" },
+  
     { name: "Program", href: "#program" },
-    { name: "Map", href: "#map" },
+  
     { name: "Donate", href: "#donate" },
     { name: "Contact", href: "#contact" },
   ];

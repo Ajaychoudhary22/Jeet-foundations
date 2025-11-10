@@ -6,17 +6,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
 
-// Components
+// ✅ Components
 import Header from "./Components/Header";
 import Navbar from "./Components/Navbar";
 import VideoSection from "./Components/VideoSection";
 import About from "./Components/About";
 import Mission from "./Components/Mission";
-import Initiatives from "./Components/Initiatives";
 import Event from "./Components/Event";
-import Gallery from "./Components/Gallery";
 import Program from "./Components/Program";
-import Map from "./Components/Map"; // ✅ Added Map section
+import Map from "./Components/Map";
 import Donate from "./Components/Donate";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
@@ -39,7 +37,7 @@ export default function App() {
         <Header />
       </div>
 
-      {/* Main Content */}
+      {/* ✅ Main Content */}
       <main className="space-y-24">
         <section id="home" data-aos="fade-up">
           <VideoSection />
@@ -53,16 +51,10 @@ export default function App() {
           <Mission />
         </section>
 
-        <section id="initiatives" data-aos="fade-up" className="bg-white py-20">
-          <Initiatives />
-        </section>
+        {/* ❌ Removed Initiatives and Gallery (now part of Program) */}
 
         <section id="event" data-aos="fade-right">
           <Event />
-        </section>
-
-        <section id="gallery" data-aos="zoom-in-up" className="bg-white py-20">
-          <Gallery />
         </section>
 
         <section id="program" data-aos="fade-up">
