@@ -48,6 +48,12 @@ export default function Map() {
     import("leaflet/dist/leaflet.css");
   }, []);
 
+  // 👉 Open normal Google Maps (NO STREET VIEW)
+  const openGoogleMap = (lat, lng) => {
+    const mapUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+    window.open(mapUrl, "_blank");
+  };
+
   return (
     <section
       id="map"
@@ -87,8 +93,10 @@ export default function Map() {
               key={index}
               position={loc.position}
               icon={treeIcon}
+              eventHandlers={{
+                click: () => openGoogleMap(loc.position[0], loc.position[1]),
+              }}
             >
-              {/* 🌟 Hover Tooltip */}
               <Tooltip direction="top" offset={[0, -20]} opacity={1}>
                 <div className="text-sm font-semibold text-green-800">
                   {loc.name}
@@ -99,11 +107,19 @@ export default function Map() {
                 </div>
               </Tooltip>
 
-              {/* 📌 Popup on Click */}
               <Popup>
                 <strong>{loc.name}</strong>
                 <br />
                 {loc.description}
+                <br />
+                <button
+                  onClick={() =>
+                    openGoogleMap(loc.position[0], loc.position[1])
+                  }
+                  className="text-green-700 underline mt-1 font-semibold hover:text-green-900"
+                >
+                  View on Google Maps
+                </button>
               </Popup>
             </Marker>
           ))}
