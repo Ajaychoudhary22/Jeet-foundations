@@ -1,4 +1,5 @@
 // src/Components/Map.jsx
+
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -47,12 +48,6 @@ export default function Map() {
     import("leaflet/dist/leaflet.css");
   }, []);
 
-  // Google Street View
-  const openStreetView = (lat, lng) => {
-    const streetUrl = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lng}`;
-    window.open(streetUrl, "_blank");
-  };
-
   return (
     <section
       id="map"
@@ -92,9 +87,6 @@ export default function Map() {
               key={index}
               position={loc.position}
               icon={treeIcon}
-              eventHandlers={{
-                click: () => openStreetView(loc.position[0], loc.position[1]),
-              }}
             >
               {/* 🌟 Hover Tooltip */}
               <Tooltip direction="top" offset={[0, -20]} opacity={1}>
@@ -112,15 +104,6 @@ export default function Map() {
                 <strong>{loc.name}</strong>
                 <br />
                 {loc.description}
-                <br />
-                <button
-                  onClick={() =>
-                    openStreetView(loc.position[0], loc.position[1])
-                  }
-                  className="text-green-700 underline mt-1 font-semibold hover:text-green-900"
-                >
-                  View Street
-                </button>
               </Popup>
             </Marker>
           ))}
