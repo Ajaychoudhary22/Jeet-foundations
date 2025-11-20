@@ -1,9 +1,11 @@
 // src/Components/Event.jsx
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 
 export default function Event() {
+  const [lang, setLang] = useState("en");
+
   const settings = {
     dots: true,
     infinite: true,
@@ -14,6 +16,29 @@ export default function Event() {
     autoplaySpeed: 1500,
     arrows: false,
     pauseOnHover: false,
+  };
+
+  const content = {
+    en: [
+      "He was born on 15 November 1875 in Ulihatu village, Jharkhand.",
+      "Birsa Munda awakened a strong sense of unity, self-respect, and freedom among the tribal community.",
+      "He led the great tribal rebellion ‘Ulgulan’ against British rule.",
+      "Slogan — “Abua Dishum, Abua Raj” meaning “Our Land, Our Rule!”",
+      "He was also a great social reformer and spiritual guide.",
+      "He inspired people to stay away from addiction, injustice, and blind beliefs.",
+      "He sacrificed his life at the age of just 25, but his ideals remain immortal.",
+      "He is honored with the title “Dharti Aba” meaning “Father of the Earth”.",
+    ],
+    hi: [
+      "उनका जन्म 15 नवंबर 1875 को उलीहातू गाँव, झारखंड में हुआ था।",
+      "बिरसा मुंडा जी ने आदिवासी समाज में एकता, स्वाभिमान और आज़ादी की भावना जगाई।",
+      "उन्होंने अंग्रेजों के खिलाफ उलगुलान (महान विद्रोह) का नेतृत्व किया।",
+      "नारा — “अबुआ दिशुम, अबुआ राज” यानी हमारा देश, हमारा राज!",
+      "वे समाज सुधारक और आध्यात्मिक नेता भी थे।",
+      "उन्होंने समाज को नशे, अन्याय और अंधविश्वास से मुक्त होने का संदेश दिया।",
+      "मात्र 25 वर्ष की आयु में शहीद हो गए, लेकिन उनका आदर्श आज भी अमर है।",
+      "उन्हें “धरती आबा” यानी धरती के पिता के नाम से सम्मानित किया जाता है।",
+    ],
   };
 
   return (
@@ -28,7 +53,7 @@ export default function Event() {
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.8 }}
       >
-        {/* 🌍 OLD EVENT: Healing for World Peace 2025 */}
+        {/* 🌍 OLD EVENT */}
         <h2 className="text-3xl md:text-4xl font-extrabold text-green-800 mb-4">
           Healing for World Peace 2025 – A Global Movement from Bhopal
         </h2>
@@ -50,7 +75,7 @@ export default function Event() {
           </blockquote>
         </div>
 
-        {/* 🌿 Old Event Slider */}
+        {/* OLD EVENT SLIDER */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -59,47 +84,55 @@ export default function Event() {
         >
           <Slider {...settings}>
             <div>
-              <img
-                src="/office_photo/Event.jpg"
-                className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black"
-              />
+              <img src="/office_photo/Event.jpg" className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black" />
             </div>
             <div>
-              <img
-                src="/office_photo/Event2.jpg"
-                className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black"
-              />
+              <img src="/office_photo/Event2.jpg" className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black" />
             </div>
             <div>
-              <img
-                src="/office_photo/Event3.jpg"
-                className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black"
-              />
+              <img src="/office_photo/Event3.jpg" className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black" />
             </div>
           </Slider>
         </motion.div>
 
-        {/* ⭐ NEW EVENT: Birsa Munda Jayanti */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-green-800 mt-16 mb-4">
-          बिरसा मुंडा जयंती — आदिवासी स्वाभिमान के अमर वीर
-        </h2>
+        {/* ⭐ BIRSA MUNDA SECTION */}
+        <div className="flex justify-center items-start mt-16 mb-2 relative">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-green-800">
+            {lang === "en"
+              ? "Birsa Munda Jayanti — The Immortal Hero of Tribal Pride"
+              : "बिरसा मुंडा जयंती — आदिवासी स्वाभिमान के अमर वीर"}
+          </h2>
 
-        <div className="text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed text-justify">
-          <p>उनका जन्म 15 नवंबर 1875 को उलीहातू गाँव, झारखंड में हुआ था।</p>
-          <p>बिरसा मुंडा जी ने आदिवासी समाज में एकता, स्वाभिमान और आज़ादी की भावना जगाई।</p>
-          <p>उन्होंने अंग्रेजों के खिलाफ उलगुलान (महान विद्रोह) का नेतृत्व किया।</p>
-          <p>
-            <strong>नारा — "अबुआ दिशुम, अबुआ राज" यानी हमारा देश, हमारा राज!</strong>
-          </p>
-          <p>वे समाज सुधारक और आध्यात्मिक नेता भी थे।</p>
-          <p>उन्होंने समाज को नशे, अन्याय और अंधविश्वास से मुक्त होने का संदेश दिया।</p>
-          <p>मात्र 25 वर्ष की आयु में शहीद हो गए, लेकिन उनका आदर्श आज भी अमर है।</p>
-          <p>
-            <strong>उन्हें “धरती आबा” यानी धरती के पिता के नाम से सम्मानित किया जाता है।</strong>
-          </p>
+          {/* ⭐ UPDATED TRANSLATE BUTTON (NO OVERLAP) */}
+          <div
+            className="absolute -top-6 right-2 bg-white px-4 py-1.5 rounded-full shadow-lg cursor-pointer text-sm font-semibold border border-green-200"
+          >
+            <span
+              onClick={() => setLang("en")}
+              className={`mr-3 cursor-pointer ${lang === "en" ? "text-green-700" : "text-gray-500"}`}
+            >
+              EN
+            </span>
+            |
+            <span
+              onClick={() => setLang("hi")}
+              className={`ml-3 cursor-pointer ${lang === "hi" ? "text-green-700" : "text-gray-500"}`}
+            >
+              HI
+            </span>
+          </div>
         </div>
 
-        {/* 🌿 New Birsa Munda Slider */}
+        {/* BIRSA MUNDA TEXT */}
+        <div className="text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed text-justify">
+          {content[lang].map((line, i) => (
+            <p key={i} className="mb-2">
+              {line}
+            </p>
+          ))}
+        </div>
+
+        {/* BIRSA MUNDA SLIDER */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -107,30 +140,10 @@ export default function Event() {
           className="mx-auto w-full md:w-3/4 lg:w-2/3"
         >
           <Slider {...settings}>
-            <div>
-              <img
-                src="/office_photo/1.jpeg"
-                className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black"
-              />
-            </div>
-            <div>
-              <img
-                src="/office_photo/2.jpeg"
-                className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black"
-              />
-            </div>
-            <div>
-              <img
-                src="/office_photo/3.jpeg"
-                className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black"
-              />
-            </div>
-            <div>
-              <img
-                src="/office_photo/4.jpeg"
-                className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black"
-              />
-            </div>
+            <div><img src="/office_photo/1.jpeg" className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black" /></div>
+            <div><img src="/office_photo/2.jpeg" className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black" /></div>
+            <div><img src="/office_photo/3.jpeg" className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black" /></div>
+            <div><img src="/office_photo/4.jpeg" className="rounded-xl shadow-xl w-full h-[450px] object-contain bg-black" /></div>
           </Slider>
         </motion.div>
       </motion.div>

@@ -1,38 +1,44 @@
 // src/Components/Map.jsx
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
-// 🌳 Custom Tree Plantation Icon
+// 🌱 Custom Small Icon (Your Own Image)
 const treeIcon = new L.Icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/427/427735.png", // tree planting icon
-  iconSize: [45, 45],
-  iconAnchor: [22, 45],
-  popupAnchor: [0, -40],
+  iconUrl: "/office_photo/5.jpeg",
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+  popupAnchor: [0, -35],
 });
 
+// 🌍 Updated Locations
 const locations = [
   {
-    name: "Village Jamoniya Johar, Narsinghgarh",
-    description: "Clean city campaign and sapling donation 🌱",
-    position: [23.6092, 77.0905],
+    name: "Teej Badli Jamoniya Johar",
+    description: "Tree Plantation Activity 🌱",
+    position: [23.61882591, 77.02517202],
   },
   {
-    name: "Village Mohhamadpur Machnai, Kurawar",
-    description: "Community plantation and awareness drive 🌿",
-    position: [23.4336, 77.1655],
+    name: "Goshala Tindoniya",
+    description: "Cow Shelter Plantation 🌿",
+    position: [23.62284322, 77.05564106],
   },
   {
-    name: "Teej Balsi Hanuman Mandir, Bhopal",
-    description: "Tree plantation and environment awareness event 🌳",
-    position: [23.2599, 77.4126],
+    name: "Dharamshal Mohanpur",
+    description: "Community Awareness Drive 🌳",
+    position: [23.46446653, 77.01686355],
   },
   {
-    name: "Minto Hall, Bhopal",
-    description: "Education & Sustainability Program 🎓",
-    position: [23.2377, 77.401],
+    name: "Gram Panchayat Mana",
+    description: "Village Plantation Program 🌾",
+    position: [23.56125715, 77.04107961],
+  },
+  {
+    name: "Shree Devnarayn Temple Kankariya Maana",
+    description: "Temple Cleanliness & Plantation 🌼",
+    position: [23.55355084, 77.06317488],
   },
 ];
 
@@ -41,7 +47,7 @@ export default function Map() {
     import("leaflet/dist/leaflet.css");
   }, []);
 
-  // 🌍 Opens Street View in Google Maps
+  // Google Street View
   const openStreetView = (lat, lng) => {
     const streetUrl = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lng}`;
     window.open(streetUrl, "_blank");
@@ -71,8 +77,8 @@ export default function Map() {
         transition={{ duration: 0.8 }}
       >
         <MapContainer
-          center={[23.5, 77.2]}
-          zoom={8}
+          center={[23.58, 77.04]}
+          zoom={10}
           scrollWheelZoom={true}
           style={{ height: "420px", width: "100%" }}
         >
@@ -90,6 +96,18 @@ export default function Map() {
                 click: () => openStreetView(loc.position[0], loc.position[1]),
               }}
             >
+              {/* 🌟 Hover Tooltip */}
+              <Tooltip direction="top" offset={[0, -20]} opacity={1}>
+                <div className="text-sm font-semibold text-green-800">
+                  {loc.name}
+                  <br />
+                  <span className="text-green-600 text-xs">
+                    Jeet Welfare Foundation Plantation
+                  </span>
+                </div>
+              </Tooltip>
+
+              {/* 📌 Popup on Click */}
               <Popup>
                 <strong>{loc.name}</strong>
                 <br />
