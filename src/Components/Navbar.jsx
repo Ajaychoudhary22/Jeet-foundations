@@ -24,7 +24,7 @@ export default function Navbar({ onVolunteerClick }) {
         {/* Logo / Title */}
         <h1 className="text-xl font-bold flex items-center space-x-2">
           <span role="img" aria-label="leaf">🌿</span>
-          <span>JWF Foundation</span>
+          <span>Jeet Welfare Foundation</span>
         </h1>
 
         {/* Desktop Menu */}
