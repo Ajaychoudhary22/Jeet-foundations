@@ -1,10 +1,11 @@
 // src/Components/Event.jsx
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
+import LanguageContext from "../LanguageContext";
 
 export default function Event() {
-  const [lang, setLang] = useState("en");
+  const { lang } = useContext(LanguageContext); // 🔥 GLOBAL LANGUAGE
 
   const settings = {
     dots: true,
@@ -53,11 +54,12 @@ export default function Event() {
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.8 }}
       >
-        {/* 🌍 OLD EVENT */}
+        {/* OLD EVENT TITLE */}
         <h2 className="text-3xl md:text-4xl font-extrabold text-green-800 mb-4">
           Healing for World Peace 2025 – A Global Movement from Bhopal
         </h2>
 
+        {/* OLD EVENT TEXT */}
         <div className="text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed text-justify">
           <p className="mb-4">
             <strong>Bhopal, Oct 5, 2025:</strong> Led by <strong>Ayush Gupta</strong>, Founder of
@@ -95,44 +97,23 @@ export default function Event() {
           </Slider>
         </motion.div>
 
-        {/* ⭐ BIRSA MUNDA SECTION */}
-        <div className="flex justify-center items-start mt-16 mb-2 relative">
+        {/* ⭐ BIRSA MUNDA TITLE — AUTO TRANSLATE USING CONTEXT ⭐ */}
+        <div className="flex justify-center items-start mt-16 mb-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-green-800">
             {lang === "en"
               ? "Birsa Munda Jayanti — The Immortal Hero of Tribal Pride"
               : "बिरसा मुंडा जयंती — आदिवासी स्वाभिमान के अमर वीर"}
           </h2>
-
-          {/* ⭐ UPDATED TRANSLATE BUTTON (NO OVERLAP) */}
-          <div
-            className="absolute -top-6 right-2 bg-white px-4 py-1.5 rounded-full shadow-lg cursor-pointer text-sm font-semibold border border-green-200"
-          >
-            <span
-              onClick={() => setLang("en")}
-              className={`mr-3 cursor-pointer ${lang === "en" ? "text-green-700" : "text-gray-500"}`}
-            >
-              EN
-            </span>
-            |
-            <span
-              onClick={() => setLang("hi")}
-              className={`ml-3 cursor-pointer ${lang === "hi" ? "text-green-700" : "text-gray-500"}`}
-            >
-              HI
-            </span>
-          </div>
         </div>
 
-        {/* BIRSA MUNDA TEXT */}
+        {/* BIRSA TEXT */}
         <div className="text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed text-justify">
           {content[lang].map((line, i) => (
-            <p key={i} className="mb-2">
-              {line}
-            </p>
+            <p key={i} className="mb-2">{line}</p>
           ))}
         </div>
 
-        {/* BIRSA MUNDA SLIDER */}
+        {/* BIRSA SLIDER */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
